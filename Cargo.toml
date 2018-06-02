@@ -1,0 +1,6 @@
+[package]
+name = "ghost"
+version = "0.1.0"
+authors = ["David Klassen <f0rk.tt@gmail.com>"]
+
+[dependencies]
