@@ -55,11 +55,13 @@ impl Board {
     fn render(&self) -> String {
         let size = self.position.len();
         let mut printable = String::new();
-        for i in 0..(size * size + size - 1) {
-            let x = i % (size + 1);
-            let y = i / (size + 1);
-            if x % (size + 1) == size {
+        for i in 0..(size * size + size + (size - 1) * size - 1) {
+            let x = (i % (2 * size)) / 2;
+            let y = i / (2 * size);
+            if i % (2 * size) == 2 * size - 1 {
                 printable.push_str("\n");
+            } else if i % 2 == 1 {
+                printable.push_str("─");
             } else if x == 0 && y == 0 {
                 printable.push_str("┌");
             } else if x == size - 1 && y == 0 {
