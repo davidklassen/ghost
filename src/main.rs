@@ -1,17 +1,14 @@
 extern crate ghost;
 use ghost::board;
-
-fn make_move(b: &mut board::Board, stone: board::Stone, coords: board::Coords) {
-    b.set_slot(board::SlotState::Stone(stone), coords);
-}
+use ghost::game;
 
 fn main() {
-    let b = &mut board::Board::new(19);
+    let mut g = game::Game::new(19);
 
-    make_move(b, board::Stone::Black, board::Coords{ x: 15, y: 3 });
-    make_move(b, board::Stone::White, board::Coords{ x: 3, y: 15 });
-    make_move(b, board::Stone::Black, board::Coords{ x: 15, y: 16 });
-    make_move(b, board::Stone::White, board::Coords{ x: 3, y: 3 });
+    g.make_move(board::Stone::Black, board::Coords{ x: 15, y: 3 });
+    g.make_move(board::Stone::White, board::Coords{ x: 3, y: 15 });
+    g.make_move(board::Stone::Black, board::Coords{ x: 15, y: 16 });
+    g.make_move(board::Stone::White, board::Coords{ x: 3, y: 3 });
 
-    println!("{}", b);
+    println!("{}", g.get_board());
 }
